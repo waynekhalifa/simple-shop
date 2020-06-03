@@ -37,6 +37,14 @@ if (isset($_GET['logout'])) {
   </header>
   <main>
     <?php
+    // review product
+    if (isset($_POST['submit'])) {
+      $user_id = $_SESSION['auth_user']['id'];
+      $product_id = $_POST['product'];
+      $comment = $_POST['review'];
+      review_product($conn, $user_id, $product_id, $comment);
+    }
+
     // check if we have product id then display single product
     if (isset($_GET['product'])) :
       $id = $_GET['product'];
@@ -45,6 +53,20 @@ if (isset($_GET['logout'])) {
       $product = mysqli_fetch_object($sql);
 
       echo "<h1>" . $product->name . "</h1>";
+      if (logged_in()) : ?>
+        <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
+          <input type="hidden" name="product" value="<?php echo $id; ?>">
+          <div>
+            <label for="review">Review Product</label>
+            <textarea name="review" cols="30" rows="10">
+          </textarea>
+          </div>
+          <input type="submit" name="submit" value="review product">
+        </form>
+    <?php
+      else :
+        echo '<p>You have to login to review the product</p>';
+      endif;
     else :
       // list all products
       echo "<ul>";

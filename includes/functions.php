@@ -171,3 +171,17 @@ function purchase($conn, $user_id, $product_id)
   header('Location: ' . DIR . 'my-account.php');
   exit();
 }
+
+function review_product($conn, $user_id, $product_id, $comment)
+{
+  //strip all tags from varible
+  $user_id = intval(strip_tags(mysqli_real_escape_string($conn, $user_id)));
+  $product_id = intval(strip_tags(mysqli_real_escape_string($conn, $product_id)));
+  $comment = strip_tags(mysqli_real_escape_string($conn, $comment));
+
+  // review product
+  $sql = "INSERT INTO reviews (user_id, product_id, comment) VALUES ('$user_id', '$product_id', '$comment')";
+  mysqli_query($conn, $sql) or die('Query failed. ' . mysqli_error($conn));
+
+  $_SESSION['success'] = 'thank you for your feedback';
+}
