@@ -53,6 +53,25 @@ if (isset($_GET['logout'])) {
       $product = mysqli_fetch_object($sql);
 
       echo "<h1>" . $product->name . "</h1>";
+
+      // list all products reviews
+      $query = "SELECT * FROM reviews
+      LEFT JOIN users
+      ON reviews.user_id = users.id
+      WHERE reviews.product_id = '$id'";
+
+      $sql = mysqli_query($conn, $query);
+      echo "<ul>";
+      while ($row = mysqli_fetch_object($sql)) :
+        echo "<li>";
+        echo "<p>" . $row->name. "</p>";
+        echo "<p>" . $row->comment. "</p>";
+        echo "</li>";
+      endwhile;
+      echo "</ul>";
+
+
+      // display review form
       if (logged_in()) : ?>
         <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
           <input type="hidden" name="product" value="<?php echo $id; ?>">
