@@ -31,6 +31,7 @@ label {
 }
 
 input[type="text"],
+input[type="number"],
 input[type="email"],
 input[type="password"],
 textarea {
@@ -57,10 +58,119 @@ input[type="submit"] {
   text-decoration: none;
 }
 
+.msg-ok {
+  background: white;
+  padding: 16px;
+  border-left: 4px solid green;
+  margin-bottom: 40px;
+}
+
 .container {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 30px;
+}
+
+.admin-content {
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+.admin-navigation {
+  background: #591a25;
+  height: calc(100vh - 52px);
+  padding: 30px 0;
+  list-style: none;
+}
+
+.admin-navigation li {
+  border-bottom: 1px dashed white;
+}
+
+.admin-navigation li:first-of-type {
+  border-top: 1px dashed white;
+}
+
+.admin-navigation li a {
+  display: block;
+  padding: 16px 30px;
+}
+
+.admin-page {
+  padding: 30px;
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+}
+
+.admin-page h1 {
+  margin-bottom: 24px;
+}
+
+.admin-navigation li a {
+  color: white;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.admin-reviews,
+.admin-products {
+  display: grid;
+  grid-template-columns: 25% 25% 50%;
+}
+
+.admin-orders {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.grid-item {
+  margin-bottom: 2px;
+  margin-right: 2px;
+  background-color: white;
+  padding: 8px;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.products-header a {
+  color: #591a25;
+  padding: 8px 0;
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.products-actions {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.products-actions li {
+  margin-left: 16px;
+}
+
+.products-actions li a {
+  text-decoration: none;
+  display: block;
+  text-transform: capitalize;
+  border: 1px solid #4d348c;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #4d348c;
+}
+
+.products-actions li:nth-child(3n) a {
+  border: 1px solid red;
+  color:red;
 }
 
 .page-title {

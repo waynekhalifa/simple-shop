@@ -91,8 +91,7 @@ if (isset($_GET['logout'])) {
           <input type="hidden" name="product" value="<?php echo $id; ?>">
           <div class="form-control">
             <label for="review">Review Product</label>
-            <textarea name="review" cols="30" rows="10">
-          </textarea>
+            <textarea name="review" cols="30" rows="10"></textarea>
           </div>
           <input type="submit" name="submit" value="review product">
         </form>

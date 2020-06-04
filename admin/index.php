@@ -12,29 +12,34 @@ admin_required();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Shop</title>
+  <link rel="stylesheet" href="<?php echo DIR . 'assets/css/styles.css'; ?>" type="text/css">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <title><?php echo SITETITLE; ?></title>
 </head>
 
 <body>
-
-  <header>
-    <div>
-      <a href="<?php echo DIR; ?>"><?php echo SITETITLE; ?></a>
+  <div class="header-wrapper">
+    <div class="container">
+      <header class="site-header">
+        <a class="logo" href="<?php echo DIR; ?>"><?php echo SITETITLE; ?></a>
+        <ul class="navigation">
+          <li><a href="<?php echo DIR . '?logout'; ?>">logout</a></li>
+          <li><a href="<?php echo DIR; ?>">visit site</a></li>
+        </ul>
+      </header>
     </div>
-    <ul>
-      <li><a href="<?php echo DIR . '?logout'; ?>">logout</a></li>
-      <li><a href="<?php echo DIR; ?>">visit site</a></li>
-    </ul>
-  </header>
-  <main>
-    <ul>
+  </div>
+  <main class="admin-content">
+    <ul class="admin-navigation">
       <li><a href="<?php echo DIRADMIN . 'products.php'; ?>">products</a></li>
       <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">orders</a></li>
       <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">reviews</a></li>
     </ul>
-    <h1>Hi <?php echo $_SESSION['auth_user']['name'] ?></h1>
+    <div class="admin-page">
+      <h1>Hi <?php echo $_SESSION['auth_user']['name'] ?> welcome back</h1>
+    </div>
   </main>
-  <footer>footer</footer>
 </body>
 
 </html>
