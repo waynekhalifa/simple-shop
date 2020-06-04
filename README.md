@@ -12,3 +12,5 @@ Steps to run this project locally using xampp/wamp and php mysql
 - in setup.php file you will find mysql commands to create database structure, and dummy data
 - run those commands in sequence
 - navigate to http://localhost/simple-shop/
+
+Just in case you want to configure your database, check the configuration file "includes/config.php"
