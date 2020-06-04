@@ -34,7 +34,40 @@ admin_required();
       <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">all orders</a></li>
       <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">all reviews</a></li>
     </ul>
-    <h1>Hi <?php echo $_SESSION['auth_user']['name'] ?></h1>
+    <h1>All Products</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        // list all products
+
+        $sql = mysqli_query($conn, "SELECT * FROM products");
+        while ($row = mysqli_fetch_object($sql)) :
+          echo "<tr>";
+          echo "<td>" . $row->name . "</td>";
+          echo "<td>" . $row->description . "</td>";
+          echo "<td>" . $row->price . "</td>";
+          echo "<td>";
+          echo "<ul>";
+          echo "<li><a href='" . DIR . "?product=" . $row->id . "'>view</a></li>";
+          echo "<li><a href='" . DIRADMIN . "edit-product.php?product=" . $row->id . "'>edit</a></li>";
+          echo "<li><a href='" . DIRADMIN . "products.php?product=" . $row->id . "'>delete</a></li>";
+          echo "</ul>";
+          echo "</td>";
+          echo "</tr>";
+        endwhile;
+
+        ?>
+      </tbody>
+    </table>
+
   </main>
   <footer>footer</footer>
 </body>
