@@ -8,45 +8,54 @@ require 'includes/config.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<?php echo DIR . 'assets/css/styles.css'; ?>" type="text/css">
+  <!-- google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <title>Register | <?php echo SITETITLE; ?></title>
 </head>
 
 <body>
 
-  <header>
-    <div>
-      <a href="<?php echo DIR; ?>"><?php echo SITETITLE; ?></a>
+  <div class="header-wrapper">
+    <div class="container">
+      <header class="site-header">
+        <a class="logo" href="<?php echo DIR; ?>"><?php echo SITETITLE; ?></a>
+        <ul class="navigation">
+          <li><a href="<?php echo DIR . 'login.php'; ?>">login</a></li>
+          <li><a href="<?php echo DIR . 'register.php'; ?>">register</a></li>
+        </ul>
+      </header>
     </div>
-    <ul>
-      <li><a href="<?php echo DIR . 'login.php'; ?>">login</a></li>
-      <li><a href="<?php echo DIR . 'register.php'; ?>">register</a></li>
-    </ul>
-  </header>
-  <main>
+  </div>
+  <main class="container">
     <?php
     if (isset($_POST['submit'])) {
       register($conn, $_POST['name'], $_POST['email'], $_POST['password']);
     }
     ?>
-    <h1>Register</h1>
+    <h1 class="page-title">Register</h1>
     <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
-      <div>
+      <div class="form-control">
         <label for="name">Full Name</label>
-        <input type="name" name="name">
+        <input type="text" name="name">
       </div>
-      <div>
+      <div class="form-control">
         <label for="email">Email</label>
         <input type="email" name="email">
       </div>
-      <div>
+      <div class="form-control">
         <label for="password">Password</label>
         <input type="password" name="password">
       </div>
       <input type="submit" name="submit" value="Register" />
     </form>
-    <a href="<?php echo DIR; ?>login.php">Already have an account Login</a>
+    <div class="switch">
+      <a href="<?php echo DIR; ?>login.php">Already have an account Login</a>
+    </div>
   </main>
-  <footer>footer</footer>
+  <footer class="site-footer">
+    <p>&copy; <?php echo date('Y'); ?> Simple Shop. All rights reserved.</p>
+  </footer>
 </body>
 
 </html>
