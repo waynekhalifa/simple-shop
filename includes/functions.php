@@ -118,7 +118,6 @@ function logout()
   unset($_SESSION['auth_user']);
   unset($_SESSION['admin']);
   unset($_SESSION['error']);
-  unset($_SESSION['purchase']);
   header('Location: ' . DIR . 'login.php');
   exit();
 }
@@ -129,11 +128,6 @@ function messages()
   $message = '';
   if (isset($_SESSION['success']) && $_SESSION['success'] != '') {
     $message = '<div class="msg-ok">' . $_SESSION['success'] . '</div>';
-    $_SESSION['success'] = '';
-  }
-
-  if (isset($_SESSION['purchase']) && $_SESSION['purchase'] != '') {
-    $message = '<div class="msg-purchase">' . $_SESSION['auth_user']['name'] . ', ' . $_SESSION['purchase'] . '</div>';
     $_SESSION['success'] = '';
   }
 
