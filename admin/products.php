@@ -34,6 +34,14 @@ admin_required();
       <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">all orders</a></li>
       <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">all reviews</a></li>
     </ul>
+    <?php
+    // delete product
+    if (isset($_GET['product'])) {
+      delete_product($conn, $_GET['product']);
+    }
+    // display error and success messages
+    messages();
+    ?>
     <h1>All Products</h1>
     <table>
       <thead>

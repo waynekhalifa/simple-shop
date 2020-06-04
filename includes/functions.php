@@ -185,3 +185,51 @@ function review_product($conn, $user_id, $product_id, $comment)
 
   $_SESSION['success'] = 'thank you for your feedback';
 }
+
+function create_product($conn, $name, $description, $price, $image)
+{
+  $name = strip_tags(mysqli_real_escape_string($conn, $name));
+  $description = strip_tags(mysqli_real_escape_string($conn, $description));
+  $price = strip_tags(mysqli_real_escape_string($conn, $price));
+  $image = strip_tags(mysqli_real_escape_string($conn, $image));
+
+  // review product
+  $sql = "INSERT INTO products (name, description, price, image) VALUES ('$name', '$description', '$price', '$image')";
+  mysqli_query($conn, $sql) or die('Query failed. ' . mysqli_error($conn));
+
+  $_SESSION['success'] = 'thank you for your feedback';
+  header('Location: ' . DIRADMIN . 'products.php');
+  exit();
+}
+
+function edit_product($conn, $id, $name, $description, $price, $image)
+{
+  //strip all tags from varible
+  $id = intval(strip_tags(mysqli_real_escape_string($conn, $id)));
+  $name = strip_tags(mysqli_real_escape_string($conn, $name));
+  $description = strip_tags(mysqli_real_escape_string($conn, $description));
+  $price = strip_tags(mysqli_real_escape_string($conn, $price));
+  $image = strip_tags(mysqli_real_escape_string($conn, $image));
+
+  $sql = "UPDATE products
+          SET name = '$name', description = '$description', price = '$price', image = '$image'
+          WHERE id = '$id'";
+  mysqli_query($conn, $sql) or die('Query failed. ' . mysqli_error($conn));
+
+  $_SESSION['success'] = 'Product have been updated successfully';
+  header('Location: ' . DIRADMIN . 'products.php');
+  exit();
+}
+
+function delete_product($conn, $id)
+{
+  //strip all tags from varible
+  $id = intval(strip_tags(mysqli_real_escape_string($conn, $id)));
+
+  $sql = "DELETE FROM products WHERE id = '$id'";
+  mysqli_query($conn, $sql) or die('Query failed. ' . mysqli_error($conn));
+
+  $_SESSION['success'] = 'Product have been deleted successfully';
+  header('Location: ' . DIRADMIN . 'products.php');
+  exit();
+}
