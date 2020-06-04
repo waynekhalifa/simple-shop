@@ -197,7 +197,7 @@ function create_product($conn, $name, $description, $price, $image)
   $sql = "INSERT INTO products (name, description, price, image) VALUES ('$name', '$description', '$price', '$image')";
   mysqli_query($conn, $sql) or die('Query failed. ' . mysqli_error($conn));
 
-  $_SESSION['success'] = 'thank you for your feedback';
+  $_SESSION['success'] = 'Product has been added succesfully';
   header('Location: ' . DIRADMIN . 'products.php');
   exit();
 }
