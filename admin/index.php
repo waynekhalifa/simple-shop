@@ -28,11 +28,9 @@ admin_required();
   </header>
   <main>
     <ul>
-      <li><a href="<?php echo DIRADMIN . 'products.php'; ?>">all products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'new-product.php'; ?>">new products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'edit-product.php'; ?>">edit products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">all orders</a></li>
-      <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">all reviews</a></li>
+      <li><a href="<?php echo DIRADMIN . 'products.php'; ?>">products</a></li>
+      <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">orders</a></li>
+      <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">reviews</a></li>
     </ul>
     <h1>Hi <?php echo $_SESSION['auth_user']['name'] ?></h1>
   </main>

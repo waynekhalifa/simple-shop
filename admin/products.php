@@ -28,11 +28,9 @@ admin_required();
   </header>
   <main>
     <ul>
-      <li><a href="<?php echo DIRADMIN . 'products.php'; ?>">all products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'new-product.php'; ?>">new products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'edit-product.php'; ?>">edit products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">all orders</a></li>
-      <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">all reviews</a></li>
+      <li><a href="<?php echo DIRADMIN . 'products.php'; ?>">products</a></li>
+      <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">orders</a></li>
+      <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">reviews</a></li>
     </ul>
     <?php
     // delete product
@@ -42,8 +40,10 @@ admin_required();
     // display error and success messages
     messages();
     ?>
+    <div>
     <h1>All Products</h1>
-    <a href="<?php echo DIRADMIN . 'new-product.php'; ?>">New Product</a>
+    <a href="<?php echo DIRADMIN . 'new-product.php'; ?>">new products</a>
+    </div>
     <table>
       <thead>
         <tr>
@@ -62,7 +62,7 @@ admin_required();
           echo "<tr>";
           echo "<td>" . $row->name . "</td>";
           echo "<td>" . $row->description . "</td>";
-          echo "<td>" . $row->price . "</td>";
+          echo "<td>$" . $row->price . "</td>";
           echo "<td>";
           echo "<ul>";
           echo "<li><a href='" . DIR . "?product=" . $row->id . "'>view</a></li>";

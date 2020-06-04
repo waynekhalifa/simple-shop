@@ -49,11 +49,9 @@ admin_required();
     }
     ?>
     <ul>
-      <li><a href="<?php echo DIRADMIN . 'products.php'; ?>">all products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'new-product.php'; ?>">new products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'edit-product.php'; ?>">edit products</a></li>
-      <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">all orders</a></li>
-      <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">all reviews</a></li>
+      <li><a href="<?php echo DIRADMIN . 'products.php'; ?>">products</a></li>
+      <li><a href="<?php echo DIRADMIN . 'orders.php'; ?>">orders</a></li>
+      <li><a href="<?php echo DIRADMIN . 'reviews.php'; ?>">reviews</a></li>
     </ul>
     <h1>Edit <?php echo $product->name; ?></h1>
     <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
