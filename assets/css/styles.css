@@ -41,6 +41,7 @@ textarea {
   padding: 6px 10px;
 }
 
+.primary-btn,
 input[type="submit"] {
   padding: 10px;
   font: inherit;
@@ -52,6 +53,8 @@ input[type="submit"] {
   text-transform: uppercase;
   letter-spacing: 1.1px;
   font-weight: 500;
+  display: inline;
+  text-decoration: none;
 }
 
 .container {
@@ -62,6 +65,13 @@ input[type="submit"] {
 
 .page-title {
   margin: 40px 0 24px 0;
+}
+
+.section-title {
+  margin-top: 40px;
+  font-weight: 300;
+  color: black;
+  font-size: 33px;
 }
 
 .header-wrapper {
@@ -211,4 +221,16 @@ input[type="submit"] {
 
 .comment {
   margin-left: 40px;
+}
+
+.orders {
+  margin-top: 24px;
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.order {
+  background: white;
+  padding: 8px;
+  margin-bottom: 8px;
 }
